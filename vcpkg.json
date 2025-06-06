@@ -1,6 +1,6 @@
 {
-  "name": "obavestime",
-  "version": "0.1.0",
+  "name": "cppscraper",
+  "version-string": "0.1.0",
   "dependencies": [
     "curl"
   ]

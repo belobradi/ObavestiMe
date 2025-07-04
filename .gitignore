@@ -1,2 +1,53 @@
-.vs
-build
+# Build artifacts
+build/
+out/
+CMakeBuild/
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+
+# CMake presets (user-local overrides)
+CMakeUserPresets.json
+
+# Visual Studio working folder
+.vs/
+*.VC.db
+*.VC.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sdf
+
+# Visual Studio CMake cache
+CMakeSettings.json
+cmake.db
+
+# Backup and temp files
+*.log
+*.obj
+*.pch
+*.pdb
+*.idb
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.tlog
+*.ilk
+
+# Executables / output
+*.exe
+*.dll
+*.lib
+*.so
+*.a
+*.out
+
+# Generated during runtime
+*.manifest
+
+# vcpkg build artifacts (if used as submodule, keep only source)
+vcpkg_installed/
+vcpkg/buildtrees/
+vcpkg/packages/
+vcpkg/downloads/

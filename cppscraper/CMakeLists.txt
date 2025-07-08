@@ -11,7 +11,8 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
 endif()
 
 find_package(CURL REQUIRED)
+find_package(unofficial-gumbo CONFIG REQUIRED)
 
-target_link_libraries(cppscraper PRIVATE CURL::libcurl)
+target_link_libraries(cppscraper PRIVATE CURL::libcurl unofficial::gumbo::gumbo)
 
 # TODO: Add tests and install targets if needed.

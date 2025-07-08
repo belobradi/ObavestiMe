@@ -35,9 +35,9 @@ auto GetHtmlContent(const std::string& url) {
 	return htmlContent;
 }
 
-auto GetUrlString(const int distributivnoPodrucje) {
+auto GetUrlString(const int distributivnoPodrucje, const int vremenskiPomak) {
 	const auto& data{ urlData.at(distributivnoPodrucje) };
-	return "https://elektrodistribucija.rs/planirana-iskljucenja-" + data.first + "/" + data.second + "Dan_0_Iskljucenja.htm";
+	return std::format("https://elektrodistribucija.rs/planirana-iskljucenja-{}/{}Dan_{}_Iskljucenja.htm", data.first, data.second, vremenskiPomak);
 }
 
 int main() {
@@ -45,8 +45,7 @@ int main() {
 	SetConsoleOutputCP(CP_UTF8); // Enable UTF-8 output in console
 #endif
 
-	const auto urlString{ GetUrlString(distributivnopodrucje::ED_BEOGRAD) };
-
+	const auto urlString{ GetUrlString(distributivnopodrucje::ED_BEOGRAD, vremenskipomak::DANAS) };
 	const auto htmlContent{ GetHtmlContent(urlString) };
 	std::cout << htmlContent << "\n";
 	return 0;

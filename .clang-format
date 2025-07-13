@@ -1,0 +1,9 @@
+# Format Style Options - Created with Clang Power Tools
+---
+BasedOnStyle: Google
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+ColumnLimit: 128
+IndentWidth: 2
+...

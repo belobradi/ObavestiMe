@@ -1,7 +1,8 @@
-// GumboParser.hpp : GumboParser class definition for parsing HTML content using the Gumbo library
+// GumboParser.hpp : GumboParser definition for parsing HTML content using the Gumbo library
 //
 #pragma once
 
 #include <string>
+#include <vector>
 
-void ParseHtml(const std::string& htmlContent);
+std::vector<std::vector<std::string>> ExtractTable(const std::string &htmlContent);

@@ -1,5 +1,7 @@
-// HtmlReader.hpp : HtmlReader class definition for reading HTML content
+// HtmlReader.hpp : HtmlReader definition for reading HTML content
 //
 #pragma once
 
-std::string ReadHtml();
+#include <string>
+
+std::string ReadHtml(const int area, const int day);

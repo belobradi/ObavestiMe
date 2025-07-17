@@ -2,6 +2,7 @@
 //
 #include <iostream>
 
+#include "Common.hpp"
 #include "GumboParser.hpp"
 #include "HtmlReader.hpp"
 
@@ -14,18 +15,18 @@ int main()
 #ifdef _WIN32
   SetConsoleOutputCP(CP_UTF8);
 #endif
-  try {
-    const auto htmlContent{ReadHtml()};
-    ParseHtml(htmlContent);
-    // WriteTableData();
-
-    // std::cout << htmlContent << "\n";
-    return 0;
-  } catch (const std::exception &e) {
-    std::cerr << "Exception: " << e.what() << '\n';
-    return 1;
-  } catch (...) {
-    std::cerr << "Unknown exception occurred." << '\n';
-    return 1;
+  for (auto area{0}; area < area::COUNT; ++area) {
+    for (auto dayOffset{0}; dayOffset < dayoffset::COUNT; ++dayOffset) {
+      try {
+        const auto htmlContent{ReadHtml(area, dayOffset)};
+        const auto tableData{ExtractTable(htmlContent)};
+        // InsertTableData(tableData);
+      } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << '\n';
+      } catch (...) {
+        std::cerr << "Unknown exception occurred." << '\n';
+      }
+    }
   }
+  return 0;
 }

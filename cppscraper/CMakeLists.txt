@@ -10,7 +10,7 @@ file(MAKE_DIRECTORY "${DESTINATION_DIR}")
 file(COPY "${SOURCE_DIR}/" DESTINATION "${DESTINATION_DIR}")
 
 # Add source to this project's executable.
-add_executable (cppscraper "main.cpp" "Common.hpp" "GumboParser.cpp" "GumboParser.hpp" "HtmlReader.cpp" "HtmlReader.hpp")
+add_executable (cppscraper "main.cpp" "GumboParser.cpp" "HtmlReader.cpp")
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (CMAKE_VERSION VERSION_GREATER 3.12)

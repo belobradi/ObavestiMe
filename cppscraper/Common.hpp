@@ -4,17 +4,16 @@
 
 #include <map>
 
-namespace distributivnopodrucje {
-enum { ED_BEOGRAD = 0, ED_NOVI_SAD = 1, ED_NIS = 2, ED_KRAGUJEVAC = 3, ED_KRALJEVO = 4 };
+namespace area {
+enum { ED_BEOGRAD = 0, ED_NOVI_SAD = 1, ED_NIS = 2, ED_KRAGUJEVAC = 3, ED_KRALJEVO = 4, COUNT };
 }
 
-const std::map<int, std::pair<std::string, std::string>> urlData{
-    {distributivnopodrucje::ED_BEOGRAD, {"beograd", ""}},
-    {distributivnopodrucje::ED_NOVI_SAD, {"srbija", "NoviSad_"}},
-    {distributivnopodrucje::ED_NIS, {"srbija", "Nis_"}},
-    {distributivnopodrucje::ED_KRAGUJEVAC, {"srbija", "Kragujevac_"}},
-    {distributivnopodrucje::ED_KRALJEVO, {"srbija", "Kraljevo_"}}};
+const std::map<int, std::pair<std::string, std::string>> urlData{{area::ED_BEOGRAD, {"beograd", ""}},
+                                                                 {area::ED_NOVI_SAD, {"srbija", "NoviSad_"}},
+                                                                 {area::ED_NIS, {"srbija", "Nis_"}},
+                                                                 {area::ED_KRAGUJEVAC, {"srbija", "Kragujevac_"}},
+                                                                 {area::ED_KRALJEVO, {"srbija", "Kraljevo_"}}};
 
-namespace vremenskipomak {
-enum { DANAS = 0, SUTRA = 1, PREKOSUTRA = 2, NAKOSUTRA = 3 };
+namespace dayoffset {
+enum { TODAY = 0, TOMORROW = 1, DAY_AFTER_TOMORROW = 2, TWO_DAYS_OFF_TOMORROW = 3, COUNT };
 }

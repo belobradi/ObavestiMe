@@ -3,15 +3,27 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-# Add source to this project's executable.
-add_executable (cppscraper "cppscraper.cpp" "cppscraper.h")
+# Copy test data files to the build directory.
+set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_data")
+set(DESTINATION_DIR "${CMAKE_CURRENT_BINARY_DIR}/tests/test_data")
+file(MAKE_DIRECTORY "${DESTINATION_DIR}")
+file(COPY "${SOURCE_DIR}/" DESTINATION "${DESTINATION_DIR}")
 
+# Add source to this project's executable.
+add_executable (cppscraper "main.cpp" "GumboParser.cpp" "HtmlReader.cpp")
+
+# Enable Hot Reload for MSVC compilers if supported.
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET cppscraper PROPERTY CXX_STANDARD 20)
 endif()
 
+# Find and link required libraries.
 find_package(CURL REQUIRED)
+find_package(unofficial-gumbo CONFIG REQUIRED)
 
-target_link_libraries(cppscraper PRIVATE CURL::libcurl)
+target_link_libraries(cppscraper PRIVATE CURL::libcurl unofficial::gumbo::gumbo)
 
-# TODO: Add tests and install targets if needed.
+# Set the C++ standard and compiler options.
+target_compile_options(cppscraper PRIVATE
+    $<$<CXX_COMPILER_ID:MSVC>:/utf-8 /EHsc>
+)

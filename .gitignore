@@ -51,3 +51,4 @@ vcpkg_installed/
 vcpkg/buildtrees/
 vcpkg/packages/
 vcpkg/downloads/
+CppProperties.json

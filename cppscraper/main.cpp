@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Common.hpp"
+#include "DataWriter.hpp"
 #include "GumboParser.hpp"
 #include "HtmlReader.hpp"
 
@@ -20,7 +21,7 @@ int main()
       try {
         const auto htmlContent{ReadHtml(area, dayOffset)};
         const auto tableData{ExtractTable(htmlContent)};
-        // InsertTableData(tableData);
+        WriteData(area, dayOffset, tableData);
       } catch (const std::exception &e) {
         std::cerr << "Exception: " << e.what() << '\n';
       } catch (...) {

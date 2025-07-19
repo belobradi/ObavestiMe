@@ -109,19 +109,23 @@ std::vector<std::vector<std::string>> ExtractTable(const std::string &htmlConten
       FindElementsByTag(tableRow, GUMBO_TAG_TD, tableColumnCells);
 
       std::vector<std::string> rowData;
-      for (auto j{0}; j < tableColumnCells.size(); ++j) {
+      auto first{0};
+      if (tableColumnCells.size() == 4) {
+        first = 1;
+      }
+      for (auto j{first}; j < tableColumnCells.size(); ++j) {
         rowData.push_back(TrimString(CleanText(tableColumnCells[j])));
       }
       tableData.push_back(rowData);
     }
 
-    std::cout << "Extracted Table Data:" << std::endl;
-    for (const auto &row : tableData) {
-      for (const auto &col : row) {
-        std::cout << col << std::endl;
-      }
-      std::cout << "--------------------" << std::endl;
-    }
+    // std::cout << "Extracted Table Data:" << std::endl;
+    // for (const auto &row : tableData) {
+    //   for (const auto &col : row) {
+    //     std::cout << col << std::endl;
+    //   }
+    //   std::cout << "--------------------" << std::endl;
+    // }
   } catch (const std::exception &e) {
     gumbo_destroy_output(&kGumboDefaultOptions, output);
     throw std::exception{e.what()};

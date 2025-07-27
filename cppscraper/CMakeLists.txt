@@ -1,7 +1,7 @@
 ﻿# CMakeList.txt : CMake project for cppscraper, include source and define
 # project specific logic here.
 #
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.11)
 
 # Copy test data files to the build directory.
 set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_data")

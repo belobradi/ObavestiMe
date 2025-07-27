@@ -22,10 +22,6 @@ REM === Install vcpkg dependencies (manifest mode) ===
 echo [INFO] Installing vcpkg dependencies...
 %VCPKG_DIR%\vcpkg.exe install --x-install-root=%INSTALL_DIR%
 
-REM === Set up MSVC environment ===
-echo [INFO] Setting up MSVC compiler environment...
-call "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
-
 REM === Configure CMake ===
 echo [INFO] Configuring CMake...
 cmake -S "%SRC_DIR%" -B "%BUILD_DIR%" ^

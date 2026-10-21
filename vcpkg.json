@@ -1,9 +1,0 @@
-{
-  "name": "cppscraper",
-  "version-string": "0.1.0",
-  "dependencies": [
-    "curl",
-    "gumbo",
-    "sqlite3"
-  ]
-}

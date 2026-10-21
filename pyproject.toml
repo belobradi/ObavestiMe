@@ -1,0 +1,10 @@
+[project]
+name = "obavestime"
+version = "0.1.0"
+description = "Scrape planned electricity outage data"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.uv]
+package = false

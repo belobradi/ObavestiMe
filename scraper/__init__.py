@@ -1,0 +1,1 @@
+"""Outage scraping application."""
